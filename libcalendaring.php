@@ -94,7 +94,8 @@ class libcalendaring extends rcube_plugin
         $this->dst_active      = $now->format('I');
         $this->timezone_offset = $this->gmt_offset / 3600 - $this->dst_active;
 
-        $this->add_texts('localization/', false);
+        // PAMELA - MANTIS 0003848: Présentation d'un événement avec des participants
+        $this->add_texts('localization/', true);
 
         // include client scripts and styles
         if ($this->rc->output) {
@@ -330,7 +331,8 @@ class libcalendaring extends rcube_plugin
         $input_time  = new html_inputfield(array('name' => 'alarmtime[]', 'class' => 'edit-alarm-time', 'size' => 6));
         $select_type    = new html_select(array('name' => 'alarmtype[]', 'class' => 'edit-alarm-type', 'id' => $attrib['id']));
         $select_offset  = new html_select(array('name' => 'alarmoffset[]', 'class' => 'edit-alarm-offset'));
-        $select_related = new html_select(array('name' => 'alarmrelated[]', 'class' => 'edit-alarm-related'));
+        // PAMELA MANTIS 0004211: Nouvelle liste déroulante dans le rappel d'un événement
+        //$select_related = new html_select(array('name' => 'alarmrelated[]', 'class' => 'edit-alarm-related'));
         $object_type    = $attrib['_type'] ?: 'event';
 
         $select_type->add($this->gettext('none'), '');
@@ -344,8 +346,9 @@ class libcalendaring extends rcube_plugin
         if ($absolute_time)
             $select_offset->add($this->gettext('trigger@'), '@');
 
-        $select_related->add($this->gettext('relatedstart'), 'start');
-        $select_related->add($this->gettext('relatedend' . $object_type), 'end');
+        // PAMELA MANTIS 0004211: Nouvelle liste déroulante dans le rappel d'un événement
+        //$select_related->add($this->gettext('relatedstart'), 'start');
+        //$select_related->add($this->gettext('relatedend' . $object_type), 'end');
 
         // pre-set with default values from user settings
         $preset = self::parse_alarm_value($this->rc->config->get('calendar_default_alarm_offset', '-15M'));
@@ -355,7 +358,8 @@ class libcalendaring extends rcube_plugin
             html::span(array('class' => 'edit-alarm-values', 'style' => 'display:none'),
                 $input_value->show($preset[0]) . ' ' .
                 $select_offset->show($preset[1]) . ' ' .
-                $select_related->show() . ' ' .
+                // PAMELA MANTIS 0004211: Nouvelle liste déroulante dans le rappel d'un événement
+                //$select_related->show() . ' ' .
                 $input_date->show('', $hidden) . ' ' .
                 $input_time->show('', $hidden)
             )
@@ -1366,7 +1370,7 @@ class libcalendaring extends rcube_plugin
      * @param string Message part ID and object index (e.g. '1.2:0')
      * @param string Object type filter (optional)
      *
-     * @return array Hash array with the parsed iCal 
+     * @return array Hash array with the parsed iCal
      */
     public function mail_get_itip_object($mbox, $uid, $mime_id, $type = null)
     {
