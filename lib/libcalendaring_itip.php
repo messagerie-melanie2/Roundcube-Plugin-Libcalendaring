@@ -767,6 +767,11 @@ class libcalendaring_itip
             $table->add('label', $this->gettext('comment'));
             $table->add('location', rcube::Q($event['comment']));
         }
+        // PAMELA - MANTIS 0004563: La modification de la description d'un rdv n'est pas visible dans le mail de notification via roundcube
+        if ($event['description']) {
+            $table->add('label', $this->gettext('description'));
+            $table->add('description', rcube::Q($event['description']));
+        }
 
         return $table->show();
     }

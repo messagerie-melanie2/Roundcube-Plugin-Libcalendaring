@@ -92,6 +92,17 @@ $labels['acceptinvitation'] = 'Acceptez-vous cette invitation?';
 $labels['acceptattendee'] = 'Accepter l\'utilisateur';
 $labels['declineattendee'] = 'Décliner l\'utilisateur';
 $labels['declineattendeeconfirm'] = 'Saisissez un message pour l\'utilisateur qui décline l\'invitation (optionnel) :';
+
+// PAMELA MANTIS 0004910: Traduction manquante dans M2web Agenda
+$labels['rsvpmodeall'] = 'Toute la récurrence';
+$labels['rsvpmodecurrent'] = 'Seulement cette occurrence';
+$labels['rsvpmodefuture'] = 'Cette occurrence et les prochaines';
+
+$labels['itipsingleoccurrence'] = 'Il s\'agit d\'une <em>occurrence seule</em> faisant partie d\'une récurrence';
+$labels['itipfutureoccurrence'] = 'Référence à <em>cette occurrence et toutes les suivantes</em> d\'une récurrence';
+$labels['itipmessagesingleoccurrence'] = 'Le message fait uniquement référence à cette occurrence';
+$labels['itipmessagefutureoccurrence'] = 'Le message fait référence à cette occurrence et toutes les suivantes';
+
 $labels['youhaveaccepted'] = 'Vous avez accepté cette invitation';
 $labels['youhavetentative'] = 'Vous avez accepté provisoirement cette invitation';
 $labels['youhavedeclined'] = 'Vous avez refusé cette invitation';
@@ -106,7 +117,7 @@ $labels['youhavepreviouslydelegated'] = 'Vous avez déjà délégué cette invit
 $labels['youhavepreviouslyin-process'] = 'Vous avez déjà signalé que vous traitez cette affectation';
 $labels['youhavepreviouslycompleted'] = 'Vous avez déjà fini le traitement de cette affectation';
 $labels['youhavepreviouslyneeds-action'] = 'Vous êtes en attente de la réponse pour cette invitation';
-$labels['attendeeaccepted'] = 'Cet utilisateur a accepté l\'invitaion';
+$labels['attendeeaccepted'] = 'Cet utilisateur a accepté l\'invitation';
 $labels['attendeetentative'] = 'Cet utilisateur tente d\'accepter l\'invitation';
 $labels['attendeedeclined'] = 'Cet utilisateur a décliné l\'invitation';
 $labels['attendeedelegated'] = 'Cet utilisateur a délégué à $delegatedto';
