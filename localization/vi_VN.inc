@@ -6,5 +6,6 @@
  *
  * For translation see https://www.transifex.com/projects/p/kolab/resource/libcalendaring/
  */
-$labels['frequency'] = 'Opakovať';
-$labels['statustentative'] = 'Nezáväzne';
+$labels['statusorganizer'] = 'Organizer';
+$labels['statustentative'] = 'Tentative';
+$labels['statusunknown'] = 'Unknown';
